@@ -40,6 +40,10 @@ Template.itemDetail.helpers({
 	},
 	// returns the remaining time for the listing
 	expiration: function() {
+		if (this.expired === true) {
+			Meteor.clearInterval(interval);
+			return "Expired!";
+		}
 		timeDep.depend();
 		var time_left = Math.floor(moment.duration(this.expires - currentTime).asSeconds());
 		var days = Math.floor(time_left / (60 * 60 * 24));
