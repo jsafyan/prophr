@@ -1,0 +1,17 @@
+<template name="userProfile">
+	<div class="container">
+		<div class="col md-12">
+		<h2>My listings</h2>
+		{{#each ownItems}}
+			{{> item}}
+		{{/each}}
+		</div>
+		<div class="clearfix"></div>
+		<h2>What I've bid on</h2>
+		<div class="col md-12">
+		{{#each ownBids}}
+			{{> bid}}
+		{{/each}}
+		</div>
+	</div>
+</template>

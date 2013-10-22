@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {},
+    "spin": {},
+    "errors": {},
+    "moment": {},
+    "cron-tick": {},
+    "iron-router": {}
+  }
+}

@@ -1,0 +1,46 @@
+<template name="item">
+	<div class="col-xs-4">
+		<div class="thumbnail">
+			<a href="{{urlFor 'itemPage'}}">
+				<img src="{{image_url}}" height="70" width: "auto" class="img-rounded">
+			</a>
+			<div class="caption">
+				<a href="{{urlFor 'itemPage'}}">
+					<h3>{{name}}: ${{price}}</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="itemDetail">
+	<div class="container">
+	<div class="col-md-4">
+	<h2>{{name}}</h2>
+		<div class="thumbnail pull-left">
+			<a href="{{image_url}}">
+				<img src="{{image_url}}" height="200" width="200" class="img-rounded">
+			</a>
+		</div>
+		<div class="clearfix"></div>
+		<p>{{expiration}}</p>
+		<p>
+			{{#if ownItem}}
+				<a class="btn btn-warning" href="{{urlFor 'itemEdit' this}}">Edit</a>
+			{{/if}}
+		</p>
+	</div>
+	<div class="col-md-4">
+		<h3>${{price}}</h3>
+		<p>{{description}}</p>
+		<form role="form">
+		<div class="form-group">
+	         	<input type="number" name="bid" class="form-control" placeholder="Place a bid" id="name">
+	    </div>
+	    <div class="clearfix"></div>
+		<button type="submit" class="btn btn-primary">Place Bid</button>
+		</div>
+	</form>
+	</div>
+	</div>
+</template>

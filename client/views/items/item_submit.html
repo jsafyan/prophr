@@ -1,0 +1,48 @@
+<template name="itemSubmit">
+<div class="container">
+	<form role="form">
+	   <div class="form-group">
+	    	<div class="form-group col-md-6">
+	        	<label for="name">Item Name</label>
+	         		<input type="text" name="name" class="form-control" placeholder="What are you selling?" id="name">
+	         	<br>
+	         	<label for="name">Reserve Price</label>
+	         		<input name="reserve_price" class="form-control" placeholder="What's your minimum price?" id="reserve_price">
+	         	<br>
+	         	<label for="name">Zip Code</label>
+	         		<input name="zip_code" class="form-control" placeholder="Let people nearby find your item" id="zip_code">
+	         	<br>
+	         	<label>Auction duration</label>
+	         	<br>
+	         	<div class="form-group btn-group" name="group" data-toggle="buttons">
+  				<label for="date" class="btn btn-default">
+    				<input type="radio" value="3 hours" id="hours" name="exp_date"> 3 hours
+  				</label>
+  				<label class="btn btn-default">
+    				<input type="radio" value="1 day" id="day" name="exp_date"> 1 day
+  				</label>
+  				<label class="btn btn-default">
+    				<input type="radio" value="4 days" id="days" name="exp_date"> 4 days
+  				</label>
+  				<label class="btn btn-default">
+    				<input type="radio" value="7 days" id="week" name="exp_date"> 7 days
+  				</label>
+			</div>
+	      	</div>
+	      	<div class="form-group col-md-6">
+				<label for="description">Description</label>
+					<textarea name="description" class="form-control" type="text" rows="6" id="description" placeholder="The details..."></textarea>
+				<div id="image-preview"></div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form-group col-md-4">
+				<button id="upload" class="btn btn-lg btn-block btn-success">Add a photo</button>
+			</div>
+			<div class="clearfix"></div>
+			<div class="form-group col-md-4">
+					<button type="submit" class="btn btn-lg btn-block btn-primary">Submit</button>
+			</div>
+		</div>
+	</form>
+</div>
+</template>
