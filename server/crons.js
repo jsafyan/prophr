@@ -7,10 +7,16 @@ MyCron.addJob(2, function() {
 	// find all non-expired listings that should be expired
 	var activeListings = Items.find({expired: false}).fetch();
 	var now = moment();
-	var count = 0;
 	for (var i = 0; i < activeListings.length; i++) {
-		if (now.isAfter(activeListings[i].expires)) {
-			activeListings[i].expired = true;
+		var count = 0;
+		if (now.isAfter(activeListings[i].expires && !activeListings[i].expired)) {
+			Items.update(activeListings[i]._id, {
+				$set: {expired: true}
+			}, function(error) {
+				if (error) {
+					throw new Meteor.Error(422, "Cron expiration error");
+				}
+			});
 			count += 1;
 		}
 	}
