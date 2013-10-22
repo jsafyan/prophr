@@ -24,12 +24,14 @@ Template.itemEdit.events({
 
 		if (confirm("Delete this item?")) {
 			var currentItemId = this._id;
-			// Remove the item's bids
-			Bids.remove({listingId: currentItemId});
-			// Remove the item
-			Items.remove(currentItemId);
-			// Return to the main page
-			Router.go('/');
+			Meteor.call('deleteItem', currentItemId, function(error, res) {
+				if (error) {
+					Errors.throw(error.reason);
+				} else {
+					// Return to the main page
+					Router.go('/');
+				}
+			});
 		}
 	}
 });

@@ -71,7 +71,6 @@ Meteor.methods({
 		return itemId;
 	},
 	expireItem: function(id) {
-		item = Items.findOne(id);
 		var now = moment();
 		// ensure the expiration date has actually passed
 		if (!now.isAfter(item.expires)) {
@@ -80,6 +79,17 @@ Meteor.methods({
 
 		Items.update({_id: id}, {$set: {expired: true}});
 		console.log("server expiration");
+	},
+	deleteItem: function(id) {
+		var item = Items.findOne(id);
+		var now = moment();
+		// don't allow deletion of item after expiration of listing
+		if (now.isAfter(item.expires)) {
+			throw new Meteor.Error(422, "Cannot delete finished listings.");
+		}
+		// Remove the associated bids first
+		Bids.remove({listingId: id});
+		Items.remove({_id: id});
 	}
 });
 Items.allow({
