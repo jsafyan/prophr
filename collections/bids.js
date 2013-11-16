@@ -37,7 +37,8 @@ Meteor.methods({
 		// increment the item price
 		var oldPrice = item.price;
 		Items.update(bid.listingId, {
-			$inc: {price: Number(bid.value) - oldPrice}
+			$inc: {price: Number(bid.value) - oldPrice},
+			$set: {highestBidder: user._id}
 		});
 
 		return bid.listingId;
