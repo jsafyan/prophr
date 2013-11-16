@@ -7,8 +7,9 @@ MyCron.addJob(2, function() {
 	// find all non-expired listings that should be expired
 	var activeListings = Items.find({expired: false}).fetch();
 	var now = moment();
+	var count = 0;
 	for (var i = 0; i < activeListings.length; i++) {
-		var count = 0;
+		count = 0;
 		if (now.isAfter(activeListings[i].expires && !activeListings[i].expired)) {
 			Items.update(activeListings[i]._id, {
 				$set: {expired: true}
@@ -20,5 +21,13 @@ MyCron.addJob(2, function() {
 			count += 1;
 		}
 	}
-	console.log("Expired " + count + " listings");
+	console.log("Found " + count + " to expire and expired them.");
+});
+
+// Garbage collect old listings every two hours
+MyCron.addJob(1, function() {
+	console.log("Garbage collecting old listings...");
+	var now = moment();
+	var threeWeeksAgo = now.subtract('days', 21);
+	var oldListings = Items.find({expired: false});
 });

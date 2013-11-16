@@ -11,6 +11,7 @@ Template.itemSubmit.events({
 		var item = {
 			name: $(e.target).find('[name=name]').val(),
 			price: parseFloat($(e.target).find('[name=reserve_price]').val()),
+			zip: $(e.target).find('[name=zip_code]').val(),
 			description: $(e.target).find('[name=description]').val(),
 			date: $(e.target).find('[name=exp_date]:checked').val(),
 			image_url: image_url

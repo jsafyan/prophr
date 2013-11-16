@@ -61,6 +61,7 @@ Template.itemDetail.helpers({
 });
 
 Template.itemDetail.events({
+	// Logic for bid submission
 	'submit form': function(e, template) {
 		e.preventDefault();
 

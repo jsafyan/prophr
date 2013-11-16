@@ -29,6 +29,11 @@ Meteor.methods({
 			throw new Meteor.Error(422, "Please add a reserve price for your listing");
 		}
 
+		// ensure the item has a zip code
+		if (!itemAttributes.zip) {
+			throw new Meteor.Error(422, "Please add your zip code");
+		}
+
 		// ensure the item has a description
 		if (!itemAttributes.description) {
 			throw new Meteor.Error(422, "Please add a description for your listing");
@@ -37,6 +42,12 @@ Meteor.methods({
 		// ensure the item has an expiration date
 		if (!itemAttributes.date) {
 			throw new Meteor.Error(422, "Please add an expiration date for your listing");
+		}
+
+		// validate zip code
+		var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(itemAttributes.zip);
+		if (!isValidZip) {
+			throw new Meteor.Error(422, "Please add a valid zip");
 		}
 
 		var now = moment(new Date());
@@ -55,7 +66,7 @@ Meteor.methods({
 
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
-			'description','image_url'), {
+			'description','image_url', 'zip'), {
 			userId: user._id,
 			owner: user.username,
 			submitted: now,
