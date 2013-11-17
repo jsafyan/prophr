@@ -27,7 +27,9 @@
 		<p>
 			{{#if currentUser}}
 			{{#if ownItem}}
-				<a class="btn btn-warning" href="{{urlFor 'itemEdit' this}}">Edit</a>
+				<a class="btn btn-warning" href="{{urlFor 'itemEdit' this}}">Edit
+				<i class="glyphicon glyphicon-pencil"></i>
+				</a>
 			{{/if}}
 			{{/if}}
 		</p>
