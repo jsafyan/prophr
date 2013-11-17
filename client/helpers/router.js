@@ -26,13 +26,13 @@ Router.configure({
 		// clear any visible error messages
 		Errors.clearSeen();
 
-		var routeName = this.context.route.name;
+		var routeName = this.route.name;
 
 		// no need to check whether logged in at these URLs
 		if (_.include(['itemsList', 'itemPage'], routeName)) {
 			return;
 		}
-
+		
 		var user = Meteor.user();
 
 		if (!user) {

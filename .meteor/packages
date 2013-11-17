@@ -23,5 +23,7 @@ errors
 moment
 cron-tick
 
-iron-router
 http
+lightbox2
+
+iron-router

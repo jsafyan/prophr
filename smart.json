@@ -6,6 +6,7 @@
     "errors": {},
     "moment": {},
     "cron-tick": {},
-    "iron-router": {}
+    "iron-router": {},
+    "lightbox2": {}
   }
 }
