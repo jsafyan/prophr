@@ -31,7 +31,7 @@ Template.itemSubmit.events({
 	'click #upload': function(e) {
 		e.preventDefault();
 
-		filepicker.pickAndStore({services: ['COMPUTER', 'DROPBOX',
+		filepicker.pickAndStore({mimetype: 'image/*', services: ['COMPUTER', 'DROPBOX',
 			'EVERNOTE', 'FACEBOOK', 'FLICKR', 'GOOGLE_DRIVE', 'GMAIL',
 			'IMAGE_SEARCH', 'URL', 'WEBCAM']},{}, function(InkBlobs) {
    				console.log(JSON.stringify(InkBlobs));
@@ -42,7 +42,25 @@ Template.itemSubmit.events({
       					$(this).width(width).height(height).appendTo(target);
     				});
 				}
+				$('#image-preview').fadeIn();
    				loadImage(image_url, 150, 150,'#image-preview');
 		});
+	},
+	'click #delete-photo': function(e) {
+		e.preventDefault();
+
+		var url = image_url + "?key=" + "A3QRRvT93T4SaRHWgFLsUz";
+		try {
+			HTTP.del(url, function(error, result) {
+				if (error) {
+					console.log("Photo deletion error: " + error);
+				} else {
+					$('#image-preview').fadeOut();
+					console.log("Photo deleted: " + result);
+				}
+			});
+		} catch(error) {
+			console.log("Something went wrong with filepicker deletion request" + error);
+		}
 	}
 });
