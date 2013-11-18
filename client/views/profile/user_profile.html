@@ -1,14 +1,12 @@
 <template name="userProfile">
 	<div class="container">
-		<div class="col md-12">
 		<h2>My listings</h2>
 		{{#each ownItems}}
-			{{> item}}
+			{{> itemDetail}}
 		{{/each}}
-		</div>
-		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix">
 		<h2>My bids</h2>
-		<div class="col md-12">
 		{{#each ownBids}}
 			{{> bid}}
 		{{/each}}
