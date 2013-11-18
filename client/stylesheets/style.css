@@ -1,27 +1,4 @@
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-
-
-
-* {
+.block {
 	-webkit-transition: all 1s ease-in-out;
 	-moz-transition: all 1s ease-in-out;
 	-o-transition: all 1s ease-in-out;
@@ -37,7 +14,6 @@ q:before, q:after {
 body {
 	font-family: "Arial", serif;
 	font-size: 14px;
-	line-height: 18px;
 	background-color: #F6F6F6;
 }
 
@@ -47,4 +23,9 @@ body {
 	padding: 20px;
 	width: 300px;
 	border: 1px solid #ddd;
+}
+
+.list-container {
+	position: relative;
+	top: -50px;
 }
