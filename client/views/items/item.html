@@ -1,14 +1,13 @@
 <template name="item">
-	<div class="col-md-4">
-		<div class="thumbnail">
+	<div class="col-md-2 col-xs-6">
+		<div class="well">
 			<a href="{{urlFor 'itemPage'}}">
 				<img src="{{image_url}}" height="70" width: "auto" class="img-rounded">
 			</a>
-			<div class="caption">
 				<a href="{{urlFor 'itemPage'}}">
-					<h3>{{name}}: ${{price}}</h3>
+					<p>{{name}}</p>
+					<p>${{price}}</p>
 				</a>
-			</div>
 		</div>
 	</div>
 </template>
