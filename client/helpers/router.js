@@ -1,5 +1,11 @@
 Router.map(function() {
-	this.route('itemsList', {path: '/'});
+	this.route('itemsList', {
+		path: '/',
+		
+		waitOn: function() {
+			return Meteor.subscribe('items');
+		}
+		});
 	this.route('itemPage', {
 		path: '/items/:_id',
 		data: function() {

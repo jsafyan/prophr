@@ -98,6 +98,20 @@ Meteor.methods({
 		if (now.isAfter(item.expires)) {
 			throw new Meteor.Error(422, "Cannot delete finished listings.");
 		}
+		var url = item.image_url;
+		//delete the photo from filepicker
+		try {
+			HTTP.del(url, function(error, result) {
+				if (error) {
+					console.log("Photo deletion error: " + error);
+				} else {
+					$('#image-preview').fadeOut();
+					console.log("Photo deleted: " + result);
+				}
+			});
+		} catch(error) {
+			console.log("Something went wrong with filepicker deletion request" + error);
+		}
 		// Remove the associated bids first
 		Bids.remove({listingId: id});
 		Items.remove({_id: id});

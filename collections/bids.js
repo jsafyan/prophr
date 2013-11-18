@@ -26,7 +26,8 @@ Meteor.methods({
 
 		var bid = _.extend(_.pick(bid, 'value', 'listingId'), {
 			userId: user._id,
-			submitted: now
+			submitted: now,
+			itemName: item.name
 		});
 
 		//debugging 
