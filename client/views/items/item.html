@@ -2,12 +2,12 @@
 	<div class="col-md-2 col-xs-6">
 		<div class="well">
 			<a href="{{urlFor 'itemPage'}}">
-				<img src="{{image_url}}" height="70" width: "auto" class="img-rounded">
-			</a>
-				<a href="{{urlFor 'itemPage'}}">
 					<p>{{name}}</p>
-					<p>${{price}}</p>
 				</a>
+			<a href="{{urlFor 'itemPage'}}">
+				<img src="{{image_url}}" class="img-responsive" height="70" width: "auto" class="img-rounded">
+			</a>
+				<p>${{price}}</p>
 		</div>
 	</div>
 </template>
@@ -18,7 +18,7 @@
 	<h2>{{name}}</h2>
 		<div class="thumbnail pull-left">
 			<a href="{{image_url}}" data-lightbox="item">
-				<img src="{{image_url}}" height="150" width="auto" class="img-rounded">
+				<img src="{{image_url}}" class="img-responsive" height="150" width="auto" class="img-rounded">
 			</a>
 		</div>
 		<div class="clearfix"></div>
