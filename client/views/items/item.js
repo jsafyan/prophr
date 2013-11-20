@@ -42,6 +42,7 @@ Template.itemDetail.helpers({
 	expiration: function() {
 		if (this.expired === true) {
 			Meteor.clearInterval(interval);
+			console.log("server expiration");
 			return "Expired!";
 		}
 		timeDep.depend();
@@ -55,6 +56,7 @@ Template.itemDetail.helpers({
 			" hours, " + minutes + " minutes, " + seconds + " seconds";
 		} else {
 			Meteor.clearInterval(interval);
+			console.log("non-server");
 			return "Expired!";
 		}
 	}

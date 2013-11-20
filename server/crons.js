@@ -10,7 +10,7 @@ MyCron.addJob(2, function() {
 	var count = 0;
 	for (var i = 0; i < activeListings.length; i++) {
 		count = 0;
-		if (now.isAfter(activeListings[i].expires && !activeListings[i].expired)) {
+		if (now.isAfter(activeListings[i].expires) && !activeListings[i].expired) {
 			Items.update(activeListings[i]._id, {
 				$set: {expired: true}
 			}, function(error) {
