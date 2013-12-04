@@ -1,4 +1,31 @@
 Items = new Meteor.Collection('items');
+
+/***********Search***************/
+Meteor.startup(function(e) {
+
+    Items.index = Meteor.lunr(function() {
+        this.field('name', {boost: 10});
+        this.field('description');
+        this.ref('_id');
+    });
+
+    var allItems = Items.find({},{fields: {name: 1, description: 1}});
+    allItems.forEach(function(item) {
+    	Items.index.add(item);
+    });
+
+});
+
+
+Meteor.methods({
+    searchItems: function(matchText) {
+        check(matchText, String);
+        return Items.index.search(matchText);
+    }
+});
+
+/********************************/
+
 Items.allow({
 	update: ownsDocument,
 	remove: ownsDocument

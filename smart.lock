@@ -10,7 +10,8 @@
       "cron-tick": {},
       "iron-router": {},
       "lightbox2": {},
-      "font-awesome": {}
+      "lunr": {},
+      "easy-search": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -53,10 +54,15 @@
         "tag": "v0.0.1",
         "commit": "2ddc8f33e47d0790a1ee28177feb9a1f3dabda00"
       },
-      "font-awesome": {
-        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
-        "tag": "v4.0.3",
-        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      "lunr": {
+        "git": "https://github.com/electricjesus/meteor-lunr.git",
+        "tag": "v0.4.2.2",
+        "commit": "68bd86d6f5b9f37f13e35bad7e47ad025b54a722"
+      },
+      "easy-search": {
+        "git": "https://github.com/matteodem/meteor-easy-search.git",
+        "tag": "v0.1.4",
+        "commit": "2c5c984d7eaaca131567019cff26b72585ab37d8"
       }
     }
   }

@@ -7,6 +7,8 @@
     "moment": {},
     "cron-tick": {},
     "iron-router": {},
-    "lightbox2": {}
+    "lightbox2": {},
+    "lunr": {},
+    "easy-search": {}
   }
 }
