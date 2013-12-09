@@ -10,14 +10,13 @@
       "cron-tick": {},
       "iron-router": {},
       "lightbox2": {},
-      "lunr": {},
-      "easy-search": {}
+      "lunr": {}
     },
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v0.3.6",
-        "commit": "711dbcabe333c8714298b2fd1de97fdcdae6efa7"
+        "tag": "v0.3.7",
+        "commit": "5dd0d142c870647b910be80bc777b96f0dd45e5e"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
@@ -58,11 +57,6 @@
         "git": "https://github.com/electricjesus/meteor-lunr.git",
         "tag": "v0.4.2.2",
         "commit": "68bd86d6f5b9f37f13e35bad7e47ad025b54a722"
-      },
-      "easy-search": {
-        "git": "https://github.com/matteodem/meteor-easy-search.git",
-        "tag": "v0.1.4",
-        "commit": "2c5c984d7eaaca131567019cff26b72585ab37d8"
       }
     }
   }

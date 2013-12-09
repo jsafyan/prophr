@@ -1,6 +1,15 @@
 Template.itemsList.helpers({
   items: function() {
-  	return Items.find();
+  	var results = Session.get('searchResults');
+  	if (results === undefined || results === null) {
+  		return Items.find({});
+  	} else {
+  		return Items.find({_id: {
+  			$in: _.map(results, function(result) {
+  				return result.ref
+  			})
+  		}});
+  	}
   }
 });
 

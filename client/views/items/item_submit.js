@@ -3,6 +3,8 @@
 filepicker.setKey("A3QRRvT93T4SaRHWgFLsUz");
 
 var image_url = '';
+var image_width = '';
+var image_height = '';
 
 Template.itemSubmit.events({
 	'submit form': function(e) {
@@ -14,7 +16,9 @@ Template.itemSubmit.events({
 			zip: $(e.target).find('[name=zip_code]').val(),
 			description: $(e.target).find('[name=description]').val(),
 			date: $(e.target).find('[name=exp_date]:checked').val(),
-			image_url: image_url
+			image_url: image_url,
+			image_width: image_width,
+			image_height: image_height
 		}
 
 		Meteor.call('itemList', item, function(error, id) {
@@ -36,9 +40,15 @@ Template.itemSubmit.events({
 			'IMAGE_SEARCH', 'URL', 'WEBCAM']},{}, function(InkBlobs) {
    				console.log(JSON.stringify(InkBlobs));
    				image_url = InkBlobs[0].url;
+   				// Get image dimensions to store for faster client side rendering
+   				var inkblob = {url : image_url};
+   				filepicker.stat(inkblob, {width: true, height: true}, function(metadata) {
+   					image_width = metadata.width;
+   					image_height = metadata.height;
+   				});
    				// Create an image preview. TO-DO: allow for deletion of image through preview
    				function loadImage(path, width, height, target) {
-    				$('<img src='+ path +'>').load(function() {
+    				$('<img src='+ path +' height="{{image_height}}" width="{{image_width}}">').load(function() {
       					$(this).width(width).height(height).appendTo(target);
     				});
 				}

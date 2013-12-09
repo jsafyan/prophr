@@ -1,20 +1,24 @@
 Items = new Meteor.Collection('items');
 
+Items.index = Meteor.lunr(function() {
+    this.field('name', {boost: 10});
+    this.field('description');
+    this.ref('_id');
+});
 /***********Search***************/
 Meteor.startup(function(e) {
+	Items.index = Meteor.lunr(function() {
+    this.field('name', {boost: 10});
+    this.field('description');
+    this.ref('_id');
+	});
 
-    Items.index = Meteor.lunr(function() {
-        this.field('name', {boost: 10});
-        this.field('description');
-        this.ref('_id');
-    });
+	var allItems = Items.find({},{fields: {name: 1, description: 1}});
 
-    var allItems = Items.find({},{fields: {name: 1, description: 1}});
-    allItems.forEach(function(item) {
+	allItems.forEach(function(item) {
     	Items.index.add(item);
-    });
+	});
 
-});
 
 
 Meteor.methods({
@@ -22,6 +26,7 @@ Meteor.methods({
         check(matchText, String);
         return Items.index.search(matchText);
     }
+});
 });
 
 /********************************/
@@ -93,7 +98,7 @@ Meteor.methods({
 
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
-			'description','image_url', 'zip'), {
+			'description','image_url', 'image_width', 'image_height', 'zip'), {
 			userId: user._id,
 			owner: user.username,
 			submitted: now,
@@ -105,6 +110,7 @@ Meteor.methods({
 
 		// get the item id from the insert
 		var itemId = Items.insert(item);
+		Items.index.add(item);
 
 		return itemId;
 	},
