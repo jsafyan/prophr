@@ -13,6 +13,15 @@ Template.itemsList.helpers({
   }
 });
 
+Handlebars.registerHelper('trimString', function(input, length) {
+	if (input.length > length) {
+		var output = input.substring(0, length) + "...";
+	} else {
+		var output = input;
+	}
+	return new Handlebars.SafeString(output);
+});
+
 Template.itemsList.rendered = function() {
 	setupBlocks();
 }
@@ -44,7 +53,7 @@ function setupBlocks() {
 
 function positionBlocks() {
 	$('.block').each(function(i){
-		var min = Array.min(blocks);
+		var min = arrayMin(blocks);
 		var index = $.inArray(min, blocks);
 		var leftPos = margin+(index*(colWidth+margin));
 		$(this).css({
@@ -56,6 +65,6 @@ function positionBlocks() {
 }
 
 // Function to get the Min value in Array
-Array.min = function(array) {
+function arrayMin(array) {
    	return Math.min.apply(Math, array);
 };

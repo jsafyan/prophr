@@ -38,6 +38,9 @@ Template.itemDetail.helpers({
 	ownItem: function() {
 		return this.userId == Meteor.userId();
 	},
+	notOwnItem: function() {
+		return this.userId != Meteor.userId();
+	},
 	// returns the remaining time for the listing
 	expiration: function() {
 		if (this.expired === true) {

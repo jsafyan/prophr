@@ -5,7 +5,7 @@ Template.searchbar.events({
 
 		var searchQuery = $("input").val();
 		console.log("Query: " + searchQuery);
-		if (searchQuery.length > 1) {
+		if (searchQuery.length > 0) {
 			Meteor.call('searchItems', searchQuery, function(e, result) {
     			if (typeof e === 'undefined') {
         			Session.set('searchResults', result);

@@ -6,18 +6,18 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			<a class="navbar-brand" href="/"><img src="logo.png" height="30" width="auto"></a>
+			<a class="navbar-brand" href="/"><img src="/logo.png" height="30" width="auto"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					{{#if currentUser}}
 					<li>
-						<a href="{{urlFor 'userProfile'}}">my profile
+						<a href="{{urlFor 'userProfile'}}">My Profile
 						<i class="glyphicon glyphicon-user"></i>
 						</a>
 					</li>
 					{{/if}}
-					<li><a href="{{urlFor 'itemSubmit'}}">list an item
+					<li><a href="{{urlFor 'itemSubmit'}}">List an Item
 					<i class="glyphicon glyphicon-plus-sign"></i>
 					</a></li>
 					<li>{{loginButtons}}</li>
