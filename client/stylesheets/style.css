@@ -10,6 +10,12 @@
 	box-sizing: border-box;
 }
 
+#map-canvas {
+ 	width: 400px;
+ 	height: 400px;
+ 	width: 100%;
+}
+
 .card {
 	padding:1.5rem;
   	box-shadow:0px 2px 1px rgba(0, 0, 0, 0.098);
@@ -23,14 +29,35 @@
 	width: 100%;
 }
 
+#price {
+	color:#990000;
+}
+
 h1 {
-  font-size:2rem;
+  font-size:2.4rem;
   font-weight:200;
 }
-  strong {
+
+p {
+	font-size:1.8rem;
+  	font-weight:200;
+}
+
+h2 {
+  font-size:1.4rem;
+  line-height:3.5;
+  color:gray;
+  font-weight:400;
+}
+
+h3 {
+	font-weight:400;
+}
+
+strong {
     font-weight:300;
     color:#539D00;
-  }
+}
 
 .searchbox {
 	height: 30px;
@@ -56,26 +83,19 @@ h1 {
 	background: -webkit-linear-gradient(top,#4387fd,#4683ea);
 }
 
+.navbar {
+	background: white;
+}
+
 .item-name {
   	color: black;
 }
 
-h2 {
-  font-size:1.4rem;
-  line-height:3.5;
-  color:gray;
-  font-weight:400;
-}
-
-
 body {
-	font-family: "Arial", serif;
-	font-size: 14px;
 	background:#E5E5E5; 
 }
 
 .block {
-	padding:1.5rem;
   	box-shadow:0px 2px 1px rgba(0, 0, 0, 0.098);
 	border:none;
   	background:white;

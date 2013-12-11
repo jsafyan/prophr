@@ -6,7 +6,7 @@ Template.itemsList.helpers({
   	} else {
   		return Items.find({_id: {
   			$in: _.map(results, function(result) {
-  				return result.ref
+  				return result.ref;
   			})
   		}});
   	}
@@ -23,6 +23,9 @@ Handlebars.registerHelper('trimString', function(input, length) {
 });
 
 Template.itemsList.rendered = function() {
+	$("img").on('load', function() {
+		setupBlocks();
+	});
 	setupBlocks();
 }
 
@@ -60,7 +63,7 @@ function positionBlocks() {
 			'left':(leftPos+spaceLeft)+'px',
 			'top':min+ 60 + 'px'
 		});
-	blocks[index] = min+$(this).outerHeight()+margin;
+	blocks[index] = min+$(this).outerHeight() + margin;
 	});	
 }
 

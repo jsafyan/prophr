@@ -4,7 +4,6 @@ Template.searchbar.events({
 		e.preventDefault();
 
 		var searchQuery = $("input").val();
-		console.log("Query: " + searchQuery);
 		if (searchQuery.length > 0) {
 			Meteor.call('searchItems', searchQuery, function(e, result) {
     			if (typeof e === 'undefined') {

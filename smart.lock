@@ -10,7 +10,8 @@
       "cron-tick": {},
       "iron-router": {},
       "lightbox2": {},
-      "lunr": {}
+      "lunr": {},
+      "leaflet": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -57,6 +58,11 @@
         "git": "https://github.com/electricjesus/meteor-lunr.git",
         "tag": "v0.4.2.2",
         "commit": "68bd86d6f5b9f37f13e35bad7e47ad025b54a722"
+      },
+      "leaflet": {
+        "git": "https://github.com/bevanhunt/meteor-leaflet.git",
+        "tag": "v0.1.8",
+        "commit": "8a3d0f53734e4fe3efc3e6e39aa3da0209e2ec8e"
       }
     }
   }

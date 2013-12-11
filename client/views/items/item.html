@@ -1,18 +1,20 @@
 <template name="item">
 		<div class="block">
 			<a href="{{urlFor 'itemPage'}}">
-					<h1 class="item-name">{{trimString name 20}}</h1>
+					<h1 class="item-name pull-left">{{trimString name 16}}</h1>
 			</a>
+			<div class="clearfix">
+			<h1 id="price" class="item-name pull-right">${{price}}</h1>
+			</div>
 			<a href="{{urlFor 'itemPage'}}">
 				<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
 			</a>
-				<h2>${{price}}</h2>
 		</div>
 </template>
 
 <template name="itemDetail">
 	<div class="container">
-	<div class="col-md-4">
+	<div class="col-md-6">
 	<div class="card">
 	<h1>{{name}}</h1>
 		<div class="thumbnail pull-left">
@@ -20,8 +22,7 @@
 				<img src="{{image_url}}" class="img-responsive" height="150" width="auto" class="img-rounded">
 			</a>
 		</div>
-		<div class="clearfix"></div>
-		<p>{{expiration}}</p>
+		<h2>{{expiration}}</h2>
 		<p>
 			{{#if currentUser}}
 			{{#if ownItem}}
@@ -33,19 +34,22 @@
 		</p>
 	</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-6">
 		<div class="card">
-		<h3>${{price}}</h3>
-		<p>{{trimString description 250}}</p>
+		<h3 id="price">${{price}}</h3>
+		<p>{{trimString description 345}}</p>
 		{{#if notOwnItem}}
 		<form role="form">
 		<div class="form-group">
-	         	<input type="number" name="bid" class="form-control" placeholder="Place a bid" id="name">
+	         	<input type="number" name="bid" class="form-control" placeholder="Enter a bid" id="name">
 	    </div>
 	    <div class="clearfix"></div>
 		<button type="submit" class="btn btn-primary">Place Bid</button>
 		</div>
 		{{/if}}
+		<div class="card">
+		{{> map}}
+		</div>
 		</div>
 	</form>
 	</div>
@@ -57,7 +61,7 @@
 		<a href="{{urlFor 'itemPage'}}">
 				<h1 class="item-name">{{trimString name 20}}</h1>
 		</a>
-		<h3>${{price}}</h3>
+		<h3 id="price">${{price}}</h3>
 		<h2>{{trimString description 50}}</h2>
 		<a href="{{urlFor 'itemPage'}}">
 			<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">

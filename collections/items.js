@@ -96,6 +96,9 @@ Meteor.methods({
 		}
 		console.log(expires.format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
+		//convert price to 2 decimals
+		itemAttributes.price = itemAttributes.price.toFixed(2);
+
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
 			'description','image_url', 'image_width', 'image_height', 'zip'), {

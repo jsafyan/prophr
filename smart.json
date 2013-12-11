@@ -8,6 +8,7 @@
     "cron-tick": {},
     "iron-router": {},
     "lightbox2": {},
-    "lunr": {}
+    "lunr": {},
+    "leaflet": {}
   }
 }

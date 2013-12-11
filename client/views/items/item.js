@@ -70,10 +70,6 @@ Template.itemDetail.events({
 	'submit form': function(e, template) {
 		e.preventDefault();
 
-		if (!Meteor.user()) {
-			Errors.throw("Please login to place a bid");
-		}
-
 		var bid = {
 			value: $(e.target).find('[name=bid]').val(),
 			listingId: template.data._id
