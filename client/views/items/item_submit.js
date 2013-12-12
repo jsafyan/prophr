@@ -68,7 +68,7 @@ Template.itemSubmit.events({
    				});
    				// Create an image preview. TO-DO: allow for deletion of image through preview
    				function loadImage(path, width, height, target) {
-    				$('<img src='+ path +' style="width:100%"">').load(function() {
+    				$('<img src='+ path +' style="width:100%">').load(function() {
       					$(this).width(width).height(height).appendTo(target);
     				});
 				}
