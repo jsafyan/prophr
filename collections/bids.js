@@ -16,7 +16,7 @@ Meteor.methods({
 
 		// ensure the bid value is greater than the current price
 		if (Number(bid.value) <= item.price) {
-			throw new Meteor.Error(422, "You must bid higher than the current price");
+			throw new Meteor.Error(422, "You cannot bid less than the current price");
 		}
 
 		// check that the auction hasn't expired

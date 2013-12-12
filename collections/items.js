@@ -99,6 +99,29 @@ Meteor.methods({
 		//convert price to 2 decimals
 		itemAttributes.price = itemAttributes.price.toFixed(2);
 
+		//Get the lat/lon
+		var geoCodeUrl = "http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false&address=" + itemAttributes.zip;
+		var lat;
+		var lng;
+		var future = new Future();
+		// A callback so the job can signal completion
+		var onComplete = future.resolver();
+		HTTP.get(geoCodeUrl, function(error, results) {
+			if (error) {
+				console.log(error);
+			} else {
+				lat = results["data"]["results"][0]["geometry"]["location"]["lat"];
+				lng = results["data"]["results"][0]["geometry"]["location"]["lng"];
+				console.log("lat" + lat);
+				console.log("lon" + lng);
+			}
+			// Inform the future that we're done with it
+			onComplete(error, results);
+		});
+
+		// Wait for API call to complete
+		future.wait();
+
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
 			'description','image_url', 'image_width', 'image_height', 'zip'), {
@@ -106,7 +129,9 @@ Meteor.methods({
 			owner: user.username,
 			submitted: now,
 			expires: expires.toDate(),
-			expired: false
+			expired: false,
+			lat: lat,
+			lng: lng
 		});
 		// debugging
 		console.log(item);
