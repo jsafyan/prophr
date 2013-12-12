@@ -1,10 +1,10 @@
 <template name="item">
 		<div class="block">
 			<a href="{{urlFor 'itemPage'}}">
-					<h1 class="item-name pull-left">{{trimString name 16}}</h1>
+					<p class="item-name pull-left">{{trimString name 16}}</p>
 			</a>
 			<div class="clearfix">
-			<h1 id="price" class="item-name pull-right">${{price}}</h1>
+			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
 			<a href="{{urlFor 'itemPage'}}">
 				<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
@@ -23,7 +23,7 @@
 			</a>
 		</div>
 		{{#isolate}}
-		<h2>{{expiration}}</h2>
+		<p class="tiny-text">{{expiration}}</p>
 		{{/isolate}}
 		<p>
 			{{#if currentUser}}
@@ -61,10 +61,11 @@
 <template name="itemSummary">
 	<div class="card">
 		<a href="{{urlFor 'itemPage'}}">
-				<h1 class="item-name">{{trimString name 20}}</h1>
-		</a>
-		<h3 id="price">${{price}}</h3>
-		<h2>{{trimString description 50}}</h2>
+					<p class="item-name pull-left">{{trimString name 16}}</p>
+			</a>
+			<div class="clearfix">
+			<p id="price" class="item-name pull-right">${{price}}</p>
+			</div>
 		<a href="{{urlFor 'itemPage'}}">
 			<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
 		</a>

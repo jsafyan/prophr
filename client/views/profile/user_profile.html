@@ -1,13 +1,26 @@
 <template name="userProfile">
 	<div class="container">
-	<div class="col-md-5">
-		<h3>My listings</h3>
+	<div class="card">
+		<h2>Dashboard</h2>
+	</div>
+	<div class="col-md-6">
+		<div class="well">
+			<h3 class="pull-left">My active listings</h3>
+			<div class="clearfix">
+			<h3 class="pull-right">{{itemTotal}} total</h3>
+			</div>
+		</div>
 		{{#each ownItems}}
 			{{> itemSummary}}
 		{{/each}}
 	</div>
-	<div class="col-md-5">
-		<h3>My bids</h3>
+	<div class="col-md-6">
+		<div class="well">
+			<h3 class="pull-left">My bids</h3>
+			<div class="clearfix">
+			<h3 class="pull-right">{{bidTotal}} total</h3>
+			</div>
+		</div>
 		{{#each ownBids}}
 			{{> bid}}
 		{{/each}}

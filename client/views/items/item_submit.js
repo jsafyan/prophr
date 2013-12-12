@@ -56,8 +56,8 @@ Template.itemSubmit.events({
 		}
 
 		filepicker.pickAndStore({mimetype: 'image/*', services: ['COMPUTER', 'DROPBOX',
-			'EVERNOTE', 'FACEBOOK', 'FLICKR', 'GOOGLE_DRIVE', 'GMAIL',
-			'IMAGE_SEARCH', 'URL', 'WEBCAM']},{}, function(InkBlobs) {
+			'EVERNOTE', 'FACEBOOK', 'FLICKR', 'GOOGLE_DRIVE', 'GMAIL', 'URL', 'WEBCAM']},
+			{}, function(InkBlobs) {
    				console.log(JSON.stringify(InkBlobs));
    				image_url = InkBlobs[0].url;
    				// Get image dimensions to store for faster client side rendering

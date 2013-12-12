@@ -43,7 +43,8 @@ p {
   	font-weight:200;
 }
 
-h2 {
+
+.tiny-text {
   font-size:1.4rem;
   line-height:3.5;
   color:gray;
