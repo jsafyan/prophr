@@ -1,7 +1,3 @@
-Template.map.helpers({
-
-});
-
 Template.map.rendered = function() {
 	if (!this.data.lat) {
 		var lat = this.data.ziplat;
@@ -15,5 +11,7 @@ Template.map.rendered = function() {
 	L.tileLayer('http://a.tiles.mapbox.com/v3/examples.map-9ijuk24y/{z}/{x}/{y}.png', {
 		maxZoom: 18
 	}).addTo(map);
-	L.circle([lat, lng], 300).addTo(map);
+	if (this.data.lat) {
+		L.circle([lat, lng], 400).addTo(map);
+	}
 }

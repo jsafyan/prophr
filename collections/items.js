@@ -98,9 +98,10 @@ Meteor.methods({
 
 
 		//Get the lat/lon
-		var geoCodeUrl = "http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false&address=" + itemAttributes.zip;
+		var geoCodeUrl = "http://www.maps.google.com/maps/api/geocode/json?sensor=false&address=" + itemAttributes.zip;
 		var lat;
 		var lng;
+		var formatted_address;
 		var future = new Future();
 		// A callback so the job can signal completion
 		var onComplete = future.resolver();
@@ -108,10 +109,9 @@ Meteor.methods({
 			if (error) {
 				console.log(error);
 			} else {
+				formatted_address = results["data"]["results"][0]["formatted_address"];
 				lat = results["data"]["results"][0]["geometry"]["location"]["lat"];
 				lng = results["data"]["results"][0]["geometry"]["location"]["lng"];
-				console.log("lat" + lat);
-				console.log("lon" + lng);
 			}
 			// Inform the future that we're done with it
 			onComplete(error, results);
@@ -130,7 +130,8 @@ Meteor.methods({
 			expires: expires.toDate(),
 			expired: false,
 			ziplat: lat,
-			ziplng: lng
+			ziplng: lng,
+			formatted_address: formatted_address
 		});
 		// debugging
 		console.log(item);

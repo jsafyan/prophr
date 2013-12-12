@@ -8,7 +8,6 @@ Template.searchbar.events({
 			Meteor.call('searchItems', searchQuery, function(e, result) {
     			if (typeof e === 'undefined') {
         			Session.set('searchResults', result);
-        			console.log(result);
     			} else {
         		//handle error here.
     			}
