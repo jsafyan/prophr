@@ -1,8 +1,12 @@
 <template name="itemSubmit">
 <div class="container">
+<div class="alert alert-success alert-dismissable" id="success-message" style="display:none">
+  <button type="button" id="geo-success" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><i class="glyphicon glyphicon-ok"></i>Location found! Thanks!</strong>
+</div>
 	<form role="form">
 	   <div class="form-group">
-	    	<div class="form-group col-md-6">
+	    	<div class="form-group col-md-5">
 	        	<label for="name">Item Name</label>
 	         		<input type="text" name="name" class="form-control" placeholder="What are you selling?" id="name">
 	         	<br>
@@ -12,7 +16,14 @@
 	         	<label for="name">Zip Code</label>
 	         		<input name="zip_code" class="form-control" placeholder="Let people nearby find your item" id="zip_code">
 	         	<br>
-	         	<label>Auction duration 
+	         	<label>Geolocation</label>
+	         	<p>We won't reveal your exact location. Click 'Get Location' to allow potential buyers to find your item more easily.</p>
+	         	<button id="geolocation" class="btn btn-lg btn-default">
+	         	<i class="glyphicon glyphicon-map-marker"></i> Get location</button>
+			</div>
+	      	</div>
+	      	<div class="form-group col-md-5">
+	      	<label>Auction duration 
 	         	<i class="glyphicon glyphicon-time"></i>
 	         	</label>
 	         	<br>
@@ -29,27 +40,25 @@
   				<label class="btn btn-default">
     				<input type="radio" value="7 days" id="week" name="exp_date"> 7 days
   				</label>
-			</div>
-	      	</div>
-	      	<div class="form-group col-md-6">
+  				<br>
+  				</div>
+  				<br>
+  				<label>Add a photo</label>
+				<br>
+				<button id="upload" class="btn btn-lg btn-default">
+				<i class="glyphicon glyphicon-picture"></i> Upload a photo
+				</button>
+				<br>
 				<label for="description">Description</label>
 					<textarea name="description" class="form-control" type="text" rows="6" id="description" placeholder="The details..."></textarea>
-				<div class="img-responsive" id="image-preview"></div>
-			</div>
-			<div class="clearfix"></div>
-			<div class="form-group col-md-4">
-				<button id="upload" class="btn btn-lg btn-success">Add a photo 
-				<i class="glyphicon glyphicon-picture"></i>
-				</button>
+				<br>
+				<button type="submit" class="btn btn-lg btn-primary">
+				<i class="glyphicon glyphicon-ok-sign"></i> Finish and Submit</button>
 				<button id="delete-photo" class="btn btn-lg btn-danger">Delete photo
 				<i class="glyphicon glyphicon-remove-sign"></i>
 				</button>
-			</div>
-			<div class="clearfix"></div>
-			<div class="form-group col-md-4">
-					<button type="submit" class="btn btn-lg btn-block btn-primary">Submit</button>
-			</div>
 		</div>
 	</form>
+	<div class="img-responsive" id="image-preview"></div>
 </div>
 </template>

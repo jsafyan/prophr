@@ -5,6 +5,8 @@ filepicker.setKey("A3QRRvT93T4SaRHWgFLsUz");
 var image_url = '';
 var image_width = '';
 var image_height = '';
+var userLat;
+var userLng;
 
 Template.itemSubmit.events({
 	'submit form': function(e) {
@@ -18,7 +20,9 @@ Template.itemSubmit.events({
 			date: $(e.target).find('[name=exp_date]:checked').val(),
 			image_url: image_url,
 			image_width: image_width,
-			image_height: image_height
+			image_height: image_height,
+			lat: userLat,
+			lng: userLng
 		}
 
 		Meteor.call('itemList', item, function(error, id) {
@@ -35,6 +39,22 @@ Template.itemSubmit.events({
 	'click #upload': function(e) {
 		e.preventDefault();
 
+		// Delete any extant photos
+		if (image_url.length > 1) {
+			var url = image_url + "?key=" + "A3QRRvT93T4SaRHWgFLsUz";
+			try {
+				HTTP.del(url, function(error, result) {
+					if (error) {
+						console.log("Photo deletion error: " + error);
+					} else {
+						console.log("Photo deleted: " + result);
+					}
+				});
+			} catch(error) {
+				console.log("Something went wrong with filepicker deletion request" + error);
+			}
+		}
+
 		filepicker.pickAndStore({mimetype: 'image/*', services: ['COMPUTER', 'DROPBOX',
 			'EVERNOTE', 'FACEBOOK', 'FLICKR', 'GOOGLE_DRIVE', 'GMAIL',
 			'IMAGE_SEARCH', 'URL', 'WEBCAM']},{}, function(InkBlobs) {
@@ -48,7 +68,7 @@ Template.itemSubmit.events({
    				});
    				// Create an image preview. TO-DO: allow for deletion of image through preview
    				function loadImage(path, width, height, target) {
-    				$('<img src='+ path +' height="{{image_height}}" width="{{image_width}}">').load(function() {
+    				$('<img src='+ path +' style="width:100%"">').load(function() {
       					$(this).width(width).height(height).appendTo(target);
     				});
 				}
@@ -72,5 +92,31 @@ Template.itemSubmit.events({
 		} catch(error) {
 			console.log("Something went wrong with filepicker deletion request" + error);
 		}
+	},
+	'click #geolocation': function(e) {
+		e.preventDefault();
+		var options = {
+  			enableHighAccuracy: true,
+  			timeout: 5000,
+  			maximumAge: 0
+		};
+
+		function success(pos) {
+  			var crd = pos.coords;
+
+  			console.log('Your current position is:');
+  			console.log('Latitude : ' + crd.latitude);
+  			console.log('Longitude: ' + crd.longitude);
+  			console.log('More or less ' + crd.accuracy + ' meters.');
+  			userLat = crd.latitude;
+  			userLng = crd.longitude;
+		};
+
+		function error(err) {
+  			console.warn('ERROR(' + err.code + '): ' + err.message);
+		};
+
+		navigator.geolocation.getCurrentPosition(success, error, options);
+		$("#success-message").show();
 	}
 });

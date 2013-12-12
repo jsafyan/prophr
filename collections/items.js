@@ -124,14 +124,15 @@ Meteor.methods({
 
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
-			'description','image_url', 'image_width', 'image_height', 'zip'), {
+			'description','image_url', 'image_width', 'image_height', 'zip',
+			'lat', 'lng'), {
 			userId: user._id,
 			owner: user.username,
 			submitted: now,
 			expires: expires.toDate(),
 			expired: false,
-			lat: lat,
-			lng: lng
+			ziplat: lat,
+			ziplng: lng
 		});
 		// debugging
 		console.log(item);
