@@ -16,7 +16,7 @@ Meteor.methods({
 
 		// ensure the bid value is greater than the current price
 		if (Number(bid.value) <= item.price) {
-			throw new Meteor.Error(422, "You cannot bid less than the current price");
+			throw new Meteor.Error(422, "Please bid more than the current price");
 		}
 
 		// check that the auction hasn't expired
@@ -33,7 +33,19 @@ Meteor.methods({
 		//debugging 
 		console.log(bid);
 
-		var bidId = Bids.insert(bid);
+		// If the user has already bid on the item, update the value and submission time
+		// instead of creating a new record in the database.
+		var previousBid = Bids.findOne({userId: user._id, listingId: bid.listingId});
+		console.log(previousBid);
+		if (previousBid) {
+			Bids.update(previousBid._id, {
+				$set: {value: bid.value,
+					submitted: now}
+			});
+		// If the user has not bid, create a new bid document in the database.
+		} else {
+			var bidId = Bids.insert(bid);
+		}
 
 		// increment the item price
 		var oldPrice = item.price;

@@ -31,6 +31,18 @@ Template.itemDetail.destroyed = function() {
 	Meteor.clearInterval(interval);
 };
 
+Template.item.helpers({
+	price: function() {
+		return this.price.toFixed(2);
+	}
+});
+
+Template.itemSummary.helpers({
+	price: function() {
+		return this.price.toFixed(2);
+	}
+});
+
 
 Template.itemDetail.helpers({
 	// ("this" is the item in the Template context)
@@ -62,6 +74,8 @@ Template.itemDetail.helpers({
 			console.log("non-server");
 			return "Expired!";
 		}
+	}, price: function() {
+		return this.price.toFixed(2);
 	}
 });
 
@@ -71,7 +85,7 @@ Template.itemDetail.events({
 		e.preventDefault();
 
 		var bid = {
-			value: $(e.target).find('[name=bid]').val(),
+			value: parseFloat($(e.target).find('[name=bid]').val()),
 			listingId: template.data._id
 		}
 		console.log('submitted:' + bid.listingId);
