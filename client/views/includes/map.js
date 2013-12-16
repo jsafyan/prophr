@@ -12,6 +12,6 @@ Template.map.rendered = function() {
 		maxZoom: 18
 	}).addTo(map);
 	if (this.data.lat) {
-		L.circle([lat, lng], 400).addTo(map);
+		L.circle([lat, lng], 100).addTo(map);
 	}
 }
