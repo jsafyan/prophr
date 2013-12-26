@@ -46,7 +46,7 @@ function setupBlocks() {
 
 	// Calculate the margin so the blocks are evenly spaced within the window
 	colCount = Math.floor(windowWidth/(colWidth+margin*2));
-	spaceLeft = (windowWidth - ((colWidth*colCount)+(margin*(colCount-1)))) / 2;
+	spaceLeft = ((windowWidth - ((colWidth*colCount)+(margin*(colCount-1)))) / 2) - 20;
 	
 	for(var i=0;i<colCount;i++){
 		blocks.push(margin);

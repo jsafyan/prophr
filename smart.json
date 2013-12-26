@@ -9,6 +9,7 @@
     "iron-router": {},
     "lightbox2": {},
     "lunr": {},
-    "leaflet": {}
+    "leaflet": {},
+    "foundation-5": {}
   }
 }
