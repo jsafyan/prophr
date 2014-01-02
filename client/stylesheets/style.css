@@ -30,7 +30,7 @@
 }
 
 #price {
-	color:#990000;
+	color:#50bf82;
 }
 
 h1 {
@@ -64,7 +64,7 @@ strong {
 	background: #FFF;
 	position: relative;
 	height: 50px;
-	border: 1px solid #9a9a9a;
+	border:none;
 	box-shadow:0px 2px 1px rgba(0, 0, 0, 0.098);
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -92,6 +92,8 @@ strong {
 
 .navbar {
 	background: white;
+	border-radius: 0px;
+	box-shadow:2px 1px 1px #F6F6F6;
 }
 
 .item-name {
@@ -99,7 +101,7 @@ strong {
 }
 
 body {
-	background:#E5E5E5; 
+	background:#ECEEF3; 
 }
 
 .block {
