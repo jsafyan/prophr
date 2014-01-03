@@ -1,5 +1,5 @@
 <template name="itemSubmit">
-<div class="container">
+<div class="container list-form-container">
 <div class="alert alert-success alert-dismissable" id="success-message" style="display:none">
   <button type="button" id="geo-success" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <strong><i class="glyphicon glyphicon-ok"></i> Location found! Thanks!</strong>
@@ -17,12 +17,12 @@
 	         		<input name="zip_code" class="form-control" placeholder="Let people nearby find your item" id="zip_code">
 	         	<br>
 	         	<label>Geolocation</label>
-	         	<p>Select 'Add location' to allow potential buyers to find your item more easily.</p>
+	         	<p style="font-size: 16px;">Select 'Add location' to allow potential buyers to find your item more easily.</p>
 	         	<button id="geolocation" class="btn btn-lg btn-default">
 	         	<i class="glyphicon glyphicon-map-marker"></i> Add location</button>
 			</div>
 	      	</div>
-	      	<div class="form-group col-md-5 col-md-offset-1">
+	      	<div class="form-group col-md-6 col-md-offset-1">
 	      	<label>Auction duration 
 	         	<i class="glyphicon glyphicon-time"></i>
 	         	</label>

@@ -6,23 +6,23 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			<a class="navbar-brand" href="/"><img src="/logo.png" height="30" width="auto"></a>
+			<a class="navbar-brand" style="color: white; font-size: 18px" href="/"><img src="/logo.png" height="30" width="auto"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					{{#if currentUser}}
 					<li>
-						<a href="{{urlFor 'userProfile'}}"><p style="font-size: 14px">My Profile
+						<a href="{{urlFor 'userProfile'}}"><p style="font-size: 14px; color: white">My Profile
 						<i class="glyphicon glyphicon-user"></i></p>
 						</a>
 					</li>
 					{{/if}}
 					<li>
-						<a href="{{urlFor 'itemSubmit'}}"><p style="font-size: 14px">List an Item
+						<a href="{{urlFor 'itemSubmit'}}"><p style="font-size: 14px; color: white">List an Item
 						<i class="glyphicon glyphicon-tag"></i></p>
 						</a>
 					</li>
-					<li style="padding: 13px"><p style="font-size: 14px;">{{loginButtons}}</p></li>
+					<li style="padding: 13px"><p style="font-size: 14px">{{loginButtons}}</p></li>
 				</ul>
 			</div>
 	</nav>

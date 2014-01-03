@@ -63,38 +63,41 @@ strong {
 .searchbox {
 	background: #FFF;
 	position: relative;
-	height: 50px;
+	height: 40px;
 	border:none;
-	box-shadow:0px 2px 1px rgba(0, 0, 0, 0.098);
+	box-shadow:0px 3px 2px rgba(0, 0, 0, 0.098);
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	-webkit-transition: box-shadow .3s ease;
-	-moz-transition: box-shadow .3s ease;
-	transition: box-shadow .3s ease;
 }
 .white, .white a {
 	color: #fff;
 }
 
+.list-form-container {
+	background: #fff;
+	box-shadow:0px 1px 1px rgba(0, 0, 0, 0.098);
+	border-radius: 1px;
+	padding: 15px;
+	border: 1px solid rgba(0,0,0,0.1)
+}
+
 .search-button {
-	border: none;
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
-	height: 50px;
-	outline: none;
-	width: 70px;
-	-webkit-box-shadow:0px 2px 1px rgba(0, 0, 0, 0.098);
-	box-shadow: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	height: 40px;
+	width: 75px;
+	box-shadow:0px 3px 2px rgba(0, 0, 0, 0.098);
 	background: #4285f4;
 	background: -webkit-linear-gradient(top,#419AE8, #419AE8);
 }
 
 .navbar {
-	background: white;
 	border-radius: 0px;
-	box-shadow:2px 1px 1px #F6F6F6;
 }
+
 
 .item-name {
   	color: black;
