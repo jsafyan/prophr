@@ -12,17 +12,15 @@
 				<ul class="nav navbar-nav pull-right">
 					{{#if currentUser}}
 					<li>
-						<a href="{{urlFor 'userProfile'}}"><p style="font-size: 14px; color: white">My Profile
-						<i class="glyphicon glyphicon-user"></i></p>
+						<a href="{{urlFor 'userProfile'}}"><p style="font-size: 14px; color: white; margin: 7px">My Profile <i class="glyphicon glyphicon-user"></i></p>
 						</a>
 					</li>
 					{{/if}}
 					<li>
-						<a href="{{urlFor 'itemSubmit'}}"><p style="font-size: 14px; color: white">List an Item
-						<i class="glyphicon glyphicon-tag"></i></p>
+						<a href="{{urlFor 'itemSubmit'}}"><p style="font-size: 14px; color: white; margin: 7px">List an Item <i class="glyphicon glyphicon-tag"></i></p>
 						</a>
 					</li>
-					<li style="padding: 13px"><p style="font-size: 14px">{{loginButtons}}</p></li>
+					<li style="padding: 13px"><p style="font-size: 14px; margin: 7px">{{loginButtons}}</p></li>
 				</ul>
 			</div>
 	</nav>

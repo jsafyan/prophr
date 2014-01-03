@@ -11,7 +11,10 @@
 	         		<input type="text" name="name" class="form-control" placeholder="What are you selling?" id="name">
 	         	<br>
 	         	<label for="name">Reserve Price</label>
-	         		<input name="reserve_price" class="form-control" placeholder="What's your minimum price?" id="reserve_price">
+	         		<div class="input-group">
+	         			<span class="input-group-addon">$</span>
+	         			<input name="reserve_price" class="form-control" placeholder="What's your minimum price?" id="reserve_price">
+	         		</div>
 	         	<br>
 	         	<label for="name">Zip Code</label>
 	         		<input name="zip_code" class="form-control" placeholder="Let people nearby find your item" id="zip_code">
@@ -52,8 +55,7 @@
 				<label for="description">Description</label>
 					<textarea name="description" class="form-control" type="text" rows="6" id="description" placeholder="The details..."></textarea>
 				<br>
-				<button type="submit" class="btn btn-lg btn-primary">
-				<i class="glyphicon glyphicon-ok-sign"></i> Finish and Submit</button>
+				<button type="submit" class="btn btn-lg btn-primary">Finish and Submit</button>
 		</div>
 	</form>
 	<div class="img-responsive" id="image-preview"></div>

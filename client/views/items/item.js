@@ -96,7 +96,10 @@ Template.itemDetail.events({
 				Errors.throw(error.reason);
 			} else {
 				// TO-DO: fix router params to use Router.go('itemPage', id);
-				Router.go('/items/' + id);
+				$('#bidModal').modal('hide');
+				$('body').removeClass('modal-open');
+				$('.modal-backdrop').fadeOut(100, function () {$('.modal-backdrop').remove(); });
+				$("#success-message").show();
 			}
 		});
 	}

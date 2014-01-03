@@ -14,6 +14,10 @@
 
 <template name="itemDetail">
 	<div class="container">
+	<div class="alert alert-success alert-dismissable" id="success-message" style="display:none">
+  		<button type="button" id="geo-success" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  		<strong><i class="glyphicon glyphicon-ok"></i> Bid received! Thanks!</strong>
+	</div>
 	<div class="col-md-6">
 	<div class="card">
 	<h1>{{name}}</h1>
@@ -46,7 +50,27 @@
 	         	<input type="number" name="bid" class="form-control" placeholder="Enter a bid" id="name"/>
 	    </div>
 	    <div class="clearfix"></div>
-		<button type="submit" class="btn btn-primary">Place Bid</button>
+	    <button class="btn btn-primary" data-toggle="modal" data-target="#bidModal">
+	    	Place bid
+	    </button>
+
+	    <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    	<div class="modal-dialog">
+	    		<div class="modal-content">
+	    			<div class="modal-header">
+	    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	    				<h4 class="modal-title" id="myModalLabel">Submit a bid for "{{name}}"</h4>
+	    			</div>
+	    			<div class="modal-body">
+	    			...
+	    			</div>
+	    			<div class="modal-footer">
+	    				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+						<button type="submit" class="btn btn-primary">Place Bid</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		</form>
 		{{/if}}
 		</div>
