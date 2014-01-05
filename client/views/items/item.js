@@ -85,14 +85,17 @@ Template.itemDetail.events({
 		e.preventDefault();
 
 		var bid = {
-			value: parseFloat($(e.target).find('[name=bid]').val()),
+			value: Number($(e.target).find('[name=bid]').val()),
 			listingId: template.data._id
 		}
 		console.log('submitted:' + bid.listingId);
 
 		Meteor.call('placeBid', bid, function(error, id) {
 			if (error) {
-				// display the error to the user
+				// hide the modal and display the error to the user
+				$('#bidModal').modal('hide');
+				$('body').removeClass('modal-open');
+				$('.modal-backdrop').fadeOut(100, function () {$('.modal-backdrop').remove(); });
 				Errors.throw(error.reason);
 			} else {
 				// TO-DO: fix router params to use Router.go('itemPage', id);

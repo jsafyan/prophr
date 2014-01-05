@@ -4,3 +4,6 @@ Meteor.publish('items', function() {
 Meteor.publish('bids', function() {
 	return Bids.find();
 });
+Meteor.publish('photos', function() {
+	return Photos.find();
+});

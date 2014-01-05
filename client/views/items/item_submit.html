@@ -51,6 +51,9 @@
 				<button id="upload" class="btn btn-lg btn-default">
 				<i class="glyphicon glyphicon-camera"></i> Upload pictures
 				</button>
+					{{#each photos}}
+						{{> photo}}
+					{{/each}}
 				<br>
 				<label for="description">Description</label>
 					<textarea name="description" class="form-control" type="text" rows="6" id="description" placeholder="The details..."></textarea>
@@ -58,6 +61,6 @@
 				<button type="submit" class="btn btn-lg btn-primary">Finish and Submit</button>
 		</div>
 	</form>
-	<div class="img-responsive" id="image-preview"></div>
+	<!--<div class="img-responsive" id="image-preview"></div>-->
 </div>
 </template>

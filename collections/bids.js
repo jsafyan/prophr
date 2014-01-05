@@ -12,10 +12,10 @@ Meteor.methods({
 		}
 
 		// ensure the bid value is a number
-		check(Number(bid.value), Number);
+		check(bid.value, Number);
 
 		// ensure the bid value is greater than the current price
-		if (Number(bid.value) <= item.price) {
+		if (bid.value <= item.price) {
 			throw new Meteor.Error(422, "Please bid more than the current price");
 		}
 

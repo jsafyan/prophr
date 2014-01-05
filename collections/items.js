@@ -122,8 +122,7 @@ Meteor.methods({
 
 		// pick out the whitelisted keys
 		var item = _.extend(_.pick(itemAttributes, 'name', 'price', 
-			'description','image_url', 'image_width', 'image_height', 'zip',
-			'lat', 'lng'), {
+			'description','zip', 'photos', 'lat', 'lng'), {
 			userId: user._id,
 			owner: user.username,
 			submitted: now,
@@ -139,6 +138,8 @@ Meteor.methods({
 		// get the item id from the insert
 		var itemId = Items.insert(item);
 		Items.index.add(item);
+
+		Photos.update({_id: {$in: item.photos}}, {$set: {listed: true}});
 
 		return itemId;
 	},
@@ -159,22 +160,26 @@ Meteor.methods({
 		if (now.isAfter(item.expires)) {
 			throw new Meteor.Error(422, "Cannot delete finished listings.");
 		}
-		var url = item.image_url;
-		//delete the photo from filepicker
-		try {
-			HTTP.del(url, function(error, result) {
-				if (error) {
-					console.log("Photo deletion error: " + error);
-				} else {
-					$('#image-preview').fadeOut();
-					console.log("Photo deleted: " + result);
-				}
-			});
-		} catch(error) {
-			console.log("Something went wrong with filepicker deletion request" + error);
+		var photoIds = item.photos;
+		var photos = Photos.find({_id: {$in: photoIds}}).fetch();
+		for (photo in photos) {
+			var url = photo.url;
+			//delete the photo from filepicker
+			try {
+				HTTP.del(url, function(error, result) {
+					if (error) {
+						console.log("Photo deletion error: " + error);
+					} else {
+						console.log("Photo deleted: " + result);
+					}
+				});
+			} catch(error) {
+				console.log("Something went wrong with filepicker deletion request" + error);
+			}
 		}
 		// Remove the associated bids first
 		Bids.remove({listingId: id});
+		Photos.remove({_id: {$in: photoIds}});
 		Items.remove({_id: id});
 	}
 });

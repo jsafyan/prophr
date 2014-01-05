@@ -2,11 +2,19 @@
 (function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filepicker.io/v1/filepicker.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
 filepicker.setKey("A3QRRvT93T4SaRHWgFLsUz");
 
-var image_url = '';
-var image_width = '';
-var image_height = '';
 var userLat;
 var userLng;
+Session.setDefault("uploadCount", 0);
+Session.setDefault("photos", []);
+
+Template.itemSubmit.helpers({
+	photos: function() {
+		var photos = Session.get("photos");
+		console.log(photos);
+		console.log(Photos.find({_id: {$in: photos}}).fetch());
+		return Photos.find({_id: { $in: Session.get("photos")}});
+	}
+});
 
 Template.itemSubmit.events({
 	'submit form': function(e) {
@@ -18,9 +26,7 @@ Template.itemSubmit.events({
 			zip: $(e.target).find('[name=zip_code]').val(),
 			description: $(e.target).find('[name=description]').val(),
 			date: $(e.target).find('[name=exp_date]:checked').val(),
-			image_url: image_url,
-			image_width: image_width,
-			image_height: image_height,
+			photos: photos,
 			lat: userLat,
 			lng: userLng
 		}
@@ -40,32 +46,36 @@ Template.itemSubmit.events({
 		e.preventDefault();
 
 		// Delete any extant photos
-		if (image_url.length > 1) {
-			var url = image_url + "?key=" + "A3QRRvT93T4SaRHWgFLsUz";
-			try {
-				HTTP.del(url, function(error, result) {
-					if (error) {
-						console.log("Photo deletion error: " + error);
-					} else {
-						console.log("Photo deleted: " + result);
-					}
-				});
-			} catch(error) {
-				console.log("Something went wrong with filepicker deletion request" + error);
-			}
+		if (Session.get("uploadCount") >= 3) {
+			Errors.throw("Sorry, there's a three photo limit for now.");
+			return;
 		}
 
-		filepicker.pickAndStore({mimetype: 'image/*', services: ['COMPUTER', 'DROPBOX',
+		filepicker.pickAndStore({mimetype: 'image/*', maxFiles: 3, services: ['COMPUTER', 'DROPBOX',
 			'EVERNOTE', 'FACEBOOK', 'FLICKR', 'GOOGLE_DRIVE', 'GMAIL', 'URL', 'WEBCAM']},
 			{}, function(InkBlobs) {
-   				console.log(JSON.stringify(InkBlobs));
-   				image_url = InkBlobs[0].url;
-   				// Get image dimensions to store for faster client side rendering
-   				var inkblob = {url : image_url};
-   				filepicker.stat(inkblob, {width: true, height: true}, function(metadata) {
-   					image_width = metadata.width;
-   					image_height = metadata.height;
-   				});
+				for (var i = 0; i < InkBlobs.length; i++) {
+					var photo = {
+						url: InkBlobs[i].url,
+						name: InkBlobs[i].filename,
+						size: InkBlobs[i].size,
+						listed: false
+					}
+					Meteor.call('addPhoto', photo, function(error, id) {
+						if (error) {
+							Errors.throw(error.reason);
+						} else {
+							var photoList = Session.get("photos");
+							photoList.push(id);
+							Session.set("photos", photoList);
+							var total = Session.get("uploadCount");
+							total = total + 1;
+							Session.set("uploadCount", total);
+							console.log("Upload count: " + Session.get("uploadCount"));
+						}
+					});
+				}
+   				/*
    				// Create an image preview. TO-DO: allow for deletion of image through preview
    				function loadImage(path, width, height, target) {
     				$('<img src='+ path +' style="width:100%">').load(function() {
@@ -74,6 +84,7 @@ Template.itemSubmit.events({
 				}
 				$('#image-preview').fadeIn();
    				loadImage(image_url, 150, 150,'#image-preview');
+   				*/
 		});
 	},
 	'click #delete-photo': function(e) {
@@ -85,7 +96,7 @@ Template.itemSubmit.events({
 				if (error) {
 					console.log("Photo deletion error: " + error);
 				} else {
-					$('#image-preview').fadeOut();
+					$('#image-preview').fadeOut(100, function () { $('#image-preview').remove(); });
 					console.log("Photo deleted: " + result);
 				}
 			});
@@ -103,7 +114,7 @@ Template.itemSubmit.events({
 
 		function success(pos) {
   			var crd = pos.coords;
-  			
+
   			console.log('Latitude : ' + crd.latitude);
   			console.log('Longitude: ' + crd.longitude);
   			console.log('More or less ' + crd.accuracy + ' meters.');
