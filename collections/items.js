@@ -162,7 +162,8 @@ Meteor.methods({
 		}
 		var photoIds = item.photos;
 		var photos = Photos.find({_id: {$in: photoIds}}).fetch();
-		for (photo in photos) {
+		for (var i = 0; i < photos.length; i++) {
+			var photo = photos[i];
 			var url = photo.url;
 			//delete the photo from filepicker
 			try {

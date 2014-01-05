@@ -1,7 +1,4 @@
 Template.photo.helpers({
-	name: function() {
-		return this.name;
-	},
 	url: function() {
 		return this.url;
 	}
@@ -10,8 +7,7 @@ Template.photo.helpers({
 Template.photo.events({
 	'click #delete': function(e) {
 		e.preventDefault();
-
-		//var url = image_url + "?key=" + "A3QRRvT93T4SaRHWgFLsUz";
+		
 		var url = this.url;
 		try {
 			HTTP.del(url, function(error, result) {

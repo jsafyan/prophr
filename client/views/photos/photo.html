@@ -1,6 +1,11 @@
 <template name="photo">
-	<div class="well">
-	<p>{{name}}, {{url}}</p>
-	<button id="delete">Delete</button>
+<div class="row-fluid">
+	<div class="photo-well">
+	<img class="pull-left" src="{{url}}" height="60" width="60">
+	<div class="clearfix">
+	<button style="margin-top: 10px" class="btn btn-lg btn-danger pull-right" id="delete">
+	<span class="glyphicon glyphicon-trash"></span> Delete
+	</button>
 	</div>
+</div>
 </template>

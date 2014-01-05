@@ -20,6 +20,8 @@ Template.itemSubmit.events({
 	'submit form': function(e) {
 		e.preventDefault();
 
+		var photos = Session.get("photos");
+
 		var item = {
 			name: $(e.target).find('[name=name]').val(),
 			price: parseFloat($(e.target).find('[name=reserve_price]').val()),

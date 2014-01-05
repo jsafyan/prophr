@@ -29,6 +29,13 @@
 	width: 100%;
 }
 
+.photo-well {
+	margin-top: 10px;
+	background: #B2B3B6;
+	padding: 10px;
+	border-radius: 3px;
+}
+
 #price {
 	color:#50bf82;
 }

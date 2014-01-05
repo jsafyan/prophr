@@ -7,7 +7,7 @@
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
 			<a href="{{urlFor 'itemPage'}}">
-				<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
+				<img src="{{photo}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
 			</a>
 		</div>
 </template>
@@ -22,9 +22,21 @@
 	<div class="card">
 	<h1>{{name}}</h1>
 		<div class="thumbnail pull-left">
-			<a href="{{image_url}}" data-lightbox="item">
-				<img src="{{image_url}}" class="img-responsive" height="150" width="auto" class="img-rounded">
+			<a href="{{photo_zero}}" data-lightbox="item">
+				<img src="{{photo_zero}}" class="img-responsive image-rounded" height="125" width:"auto">
 			</a>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-3">
+				<a href="{{photo_one}}" data-lightbox="item" class="thumbnail">
+					<img src="{{photo_one}}" class="img-responsive" height="60" width="60">
+				</a>
+			</div>
+			<div class="col-xs-4 col-md-3">
+				<a href="{{photo_two}}" data-lightbox="item" class="thumbnail">
+					<img src="{{photo_two}}" class="img-responsive" height="60" width="60">
+				</a>
+			</div>
 		</div>
 		{{#isolate}}
 		<p class="tiny-text">{{expiration}}</p>
@@ -91,7 +103,7 @@
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
 		<a href="{{urlFor 'itemPage'}}">
-			<img src="{{image_url}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
+			<img src="{{photo}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
 		</a>
 	</div>
 </template>

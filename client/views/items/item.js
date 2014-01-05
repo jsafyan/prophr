@@ -34,12 +34,20 @@ Template.itemDetail.destroyed = function() {
 Template.item.helpers({
 	price: function() {
 		return this.price.toFixed(2);
+	},
+	photo: function() {
+		var photo = Photos.find(this.photos[0]).fetch();
+		return photo[0].url;
 	}
 });
 
 Template.itemSummary.helpers({
 	price: function() {
 		return this.price.toFixed(2);
+	},
+	photo: function() {
+		var photo = Photos.find(this.photos[0]).fetc();
+		return photo[0].url;
 	}
 });
 
@@ -74,8 +82,21 @@ Template.itemDetail.helpers({
 			console.log("non-server");
 			return "Expired!";
 		}
-	}, price: function() {
+	},
+	price: function() {
 		return this.price.toFixed(2);
+	},
+	photo_zero: function() {
+		var photo = Photos.find(this.photos[0]).fetch();
+		return photo[0].url;
+	},
+	photo_one: function() {
+		var photo = Photos.find(this.photos[1]).fetch();
+		return photo[0].url;
+	},
+	photo_two: function() {
+		var photo = Photos.find(this.photos[2]).fetch();
+		return photo[0].url;
 	}
 });
 
