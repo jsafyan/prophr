@@ -6,9 +6,11 @@
 			<div class="clearfix">
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
+			{{#if photo}}
 			<a href="{{urlFor 'itemPage'}}">
 				<img src="{{photo}}" class="img-responsive" style="width:auto; height: 100px" class="img-rounded">
 			</a>
+			{{/if}}
 		</div>
 </template>
 
@@ -21,11 +23,13 @@
 	<div class="col-md-6">
 	<div class="card">
 	<h1>{{name}}</h1>
+	{{#if photo_zero}}
 		<div class="thumbnail pull-left">
 			<a href="{{photo_zero}}" data-lightbox="item">
 				<img src="{{photo_zero}}" class="img-responsive image-rounded" style="width:250; height: auto">
 			</a>
 		</div>
+	{{/if}}
 		<div class="clearfix"></div>
 		<div class="row">
 		{{#if photo_one}}
@@ -107,8 +111,10 @@
 			<div class="clearfix">
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
+		{{#if photo}}
 		<a href="{{urlFor 'itemPage'}}">
 			<img src="{{photo}}" class="img-responsive" style="width:100; height:auto" class="img-rounded">
 		</a>
+		{{/if}}
 	</div>
 </template>

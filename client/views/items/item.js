@@ -36,6 +36,9 @@ Template.item.helpers({
 		return this.price.toFixed(2);
 	},
 	photo: function() {
+		if (this.photos.length < 1) {
+			return null;
+		}
 		var photo = Photos.find(this.photos[0]).fetch();
 		return photo[0].url;
 	}
@@ -46,6 +49,9 @@ Template.itemSummary.helpers({
 		return this.price.toFixed(2);
 	},
 	photo: function() {
+		if (this.photos.length < 1) {
+			return null;
+		}
 		var photo = Photos.find(this.photos[0]).fetch();
 		return photo[0].url;
 	}
@@ -87,6 +93,9 @@ Template.itemDetail.helpers({
 		return this.price.toFixed(2);
 	},
 	photo_zero: function() {
+		if (this.photos.length < 1) {
+			return null;
+		}
 		var photo = Photos.find(this.photos[0]).fetch();
 		return photo[0].url;
 	},
