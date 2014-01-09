@@ -7,7 +7,7 @@
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
 			<a href="{{urlFor 'itemPage'}}">
-				<img src="{{photo}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
+				<img src="{{photo}}" class="img-responsive" style="width:auto; height: 100px" class="img-rounded">
 			</a>
 		</div>
 </template>
@@ -23,20 +23,25 @@
 	<h1>{{name}}</h1>
 		<div class="thumbnail pull-left">
 			<a href="{{photo_zero}}" data-lightbox="item">
-				<img src="{{photo_zero}}" class="img-responsive image-rounded" height="125" width:"auto">
+				<img src="{{photo_zero}}" class="img-responsive image-rounded" style="width:250; height: auto">
 			</a>
 		</div>
+		<div class="clearfix"></div>
 		<div class="row">
+		{{#if photo_one}}
 			<div class="col-xs-4 col-md-3">
 				<a href="{{photo_one}}" data-lightbox="item" class="thumbnail">
-					<img src="{{photo_one}}" class="img-responsive" height="60" width="60">
+					<img src="{{photo_one}}" class="img-responsive" style="width:60; height:auto; max-height: 80px">
 				</a>
 			</div>
+		{{/if}}
+		{{#if photo_two}}
 			<div class="col-xs-4 col-md-3">
 				<a href="{{photo_two}}" data-lightbox="item" class="thumbnail">
-					<img src="{{photo_two}}" class="img-responsive" height="60" width="60">
+					<img src="{{photo_two}}" class="img-responsive" style="width:60; height:auto; max-height: 80px">
 				</a>
 			</div>
+		{{/if}}
 		</div>
 		{{#isolate}}
 		<p class="tiny-text">{{expiration}}</p>
@@ -103,7 +108,7 @@
 			<p id="price" class="item-name pull-right">${{price}}</p>
 			</div>
 		<a href="{{urlFor 'itemPage'}}">
-			<img src="{{photo}}" class="img-responsive" height="{{image_height}}" width="{{image_width}}" class="img-rounded">
+			<img src="{{photo}}" class="img-responsive" style="width:100; height:auto" class="img-rounded">
 		</a>
 	</div>
 </template>

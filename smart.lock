@@ -11,8 +11,7 @@
       "iron-router": {},
       "lightbox2": {},
       "lunr": {},
-      "leaflet": {},
-      "foundation-5": {}
+      "leaflet": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -47,8 +46,8 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.1",
-        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+        "tag": "v0.6.2",
+        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
       },
       "lightbox2": {
         "git": "https://github.com/wulx/meteor-lightbox2.git",
@@ -64,11 +63,6 @@
         "git": "https://github.com/bevanhunt/meteor-leaflet.git",
         "tag": "v0.1.8",
         "commit": "8a3d0f53734e4fe3efc3e6e39aa3da0209e2ec8e"
-      },
-      "foundation-5": {
-        "git": "https://github.com/menuet/meteor-foundation-5.git",
-        "tag": "v5.0.3",
-        "commit": "629ec5e3a8f33ae6b9a1bec3a09948dee65b225f"
       }
     }
   }

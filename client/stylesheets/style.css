@@ -15,6 +15,15 @@
  	height: 400px;
  	width: 100%;
 }
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active,
+.btn-outline {
+  color: #fff;
+  background-color: #419AE8;
+  border-color: #fff;
+}
 
 .card {
 	padding:1.5rem;

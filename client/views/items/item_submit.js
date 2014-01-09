@@ -10,8 +10,6 @@ Session.setDefault("photos", []);
 Template.itemSubmit.helpers({
 	photos: function() {
 		var photos = Session.get("photos");
-		console.log(photos);
-		console.log(Photos.find({_id: {$in: photos}}).fetch());
 		return Photos.find({_id: { $in: Session.get("photos")}});
 	}
 });
@@ -39,6 +37,8 @@ Template.itemSubmit.events({
 				Errors.throw(error.reason);
 			} else {
 				// TO-DO: fix router params to use Router.go('itemPage', id);
+				Session.set("uploadCount", 0);
+				Session.set("photos", []);
 				Router.go('/items/' + id);
 			}
 		});
@@ -73,20 +73,9 @@ Template.itemSubmit.events({
 							var total = Session.get("uploadCount");
 							total = total + 1;
 							Session.set("uploadCount", total);
-							console.log("Upload count: " + Session.get("uploadCount"));
 						}
 					});
 				}
-   				/*
-   				// Create an image preview. TO-DO: allow for deletion of image through preview
-   				function loadImage(path, width, height, target) {
-    				$('<img src='+ path +' style="width:100%">').load(function() {
-      					$(this).width(width).height(height).appendTo(target);
-    				});
-				}
-				$('#image-preview').fadeIn();
-   				loadImage(image_url, 150, 150,'#image-preview');
-   				*/
 		});
 	},
 	'click #delete-photo': function(e) {

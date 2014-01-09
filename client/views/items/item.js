@@ -46,7 +46,7 @@ Template.itemSummary.helpers({
 		return this.price.toFixed(2);
 	},
 	photo: function() {
-		var photo = Photos.find(this.photos[0]).fetc();
+		var photo = Photos.find(this.photos[0]).fetch();
 		return photo[0].url;
 	}
 });
@@ -91,10 +91,16 @@ Template.itemDetail.helpers({
 		return photo[0].url;
 	},
 	photo_one: function() {
+		if (this.photos.length < 2) {
+			return null;
+		}
 		var photo = Photos.find(this.photos[1]).fetch();
 		return photo[0].url;
 	},
 	photo_two: function() {
+		if (this.photos.length < 3) {
+			return null;
+		}
 		var photo = Photos.find(this.photos[2]).fetch();
 		return photo[0].url;
 	}

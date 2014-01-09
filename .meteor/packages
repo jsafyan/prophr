@@ -9,7 +9,6 @@ underscore
 
 page-js-ie-support
 HTML5-History-API
-accounts-password
 
 
 
@@ -26,7 +25,6 @@ lightbox2
 
 iron-router
 
-accounts-ui-bootstrap-3
 
 
 lunr
@@ -34,3 +32,7 @@ lunr
 
 leaflet
 bootstrap-3
+
+jquery
+accounts-ui-bootstrap-3
+accounts-password

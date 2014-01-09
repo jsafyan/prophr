@@ -21,15 +21,19 @@ Meteor.startup(function(e) {
 
 
 
-Meteor.methods({
-    searchItems: function(matchText) {
-        check(matchText, String);
-        return Items.index.search(matchText);
-    }
-});
+	Meteor.methods({
+    	searchItems: function(matchText) {
+       		check(matchText, String);
+        	return Items.index.search(matchText);
+    	}
+	});
 });
 
 /********************************/
+// check that the userId specified owns the documents
+ownsDocument = function(userId, doc) {
+	return doc && doc.userId === userId;
+}
 
 Items.allow({
 	update: ownsDocument,

@@ -3,7 +3,7 @@ Router.map(function() {
 		path: '/',
 		
 		waitOn: function() {
-			return Meteor.subscribe('items');
+			return [Meteor.subscribe('items'), Meteor.subscribe('photos')];
 		}
 		});
 	this.route('itemPage', {
@@ -11,11 +11,19 @@ Router.map(function() {
 		data: function() {
 			return Items.findOne(this.params._id);
 		}}),
-	this.route('itemSubmit', {path: '/submit'});
+	this.route('itemSubmit', {
+		path: '/submit',
+		before: function() {
+			this.subscribe('photos').wait();
+		}
+	});
 	this.route('itemEdit', {
 		path: '/items/:_id/edit',
 		data: function() {
 			return Items.findOne(this.params._id);
+		},
+		waitOn: function() {
+			return [Meteor.subscribe('items'), Meteor.subscribe('photos')];
 		}
 	});
 	this.route('userProfile', {
