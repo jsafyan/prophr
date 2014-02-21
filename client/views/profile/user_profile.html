@@ -10,9 +10,15 @@
 			<h3 class="pull-right">{{itemTotal}} total</h3>
 			</div>
 		</div>
-		{{#each ownItems}}
-			{{> itemSummary}}
-		{{/each}}
+		{{#if itemTotal}}
+			{{#each ownItems}}
+				{{> itemSummary}}
+			{{/each}}
+		{{else}}
+		<div class="well">
+			<p><a href="/submit">Try listing and item today!</a></p>
+		</div>
+		{{/if}}
 	</div>
 	<div class="col-sm-6">
 		<div class="well">
@@ -21,9 +27,15 @@
 			<h3 class="pull-right">{{bidTotal}} total</h3>
 			</div>
 		</div>
-		{{#each ownBids}}
-			{{> bid}}
-		{{/each}}
+		{{#if bidTotal}}
+			{{#each ownBids}}
+				{{> bid}}
+			{{/each}}
+		{{else}}
+		<div class="well">
+			<p><a href="/">Find something that strikes your fancy.</a></p>
+		</div>
+		{{/if}}
 		</div>
 	</div>
 	</div>

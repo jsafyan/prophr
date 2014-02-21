@@ -6,22 +6,24 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			<a class="navbar-brand" style="color: white; font-size: 18px" href="/"><img src="/logo.png" height="40" width="auto"></a>
+			<a class="navbar-brand" href="/"><img src="/logo.png" height="32" width="auto"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					{{#if currentUser}}
 					<li>
-						<a href="{{urlFor 'userProfile'}}"><p style="font-size: 16px; color: white; margin-top: 13px; margin-right: 20px">My Profile <i class="glyphicon glyphicon-user"></i></p>
+						<a href="{{urlFor 'userProfile'}}">Dashboard <i class="glyphicon glyphicon-dashboard"></i>
 						</a>
 					</li>
 					<li>
-						<a href="{{urlFor 'itemSubmit'}}"><p style="font-size: 16px; color: white; margin-top: 13px; margin-right: 20px">List an Item <i class="glyphicon glyphicon-tag"></i></p>
+						<a href="{{urlFor 'itemSubmit'}}">List an Item <i class="glyphicon glyphicon-tag"></i>
 						</a>
 					</li>
-					{{/if}}
+					<li><a href="/sign-out">Sign-out <i class="glyphicon glyphicon-user"></i></a></li>
+					{{else}}
 					<!--<button class="btn btn-lg btn-outline">Sign in / Sign up</button>-->
-					<li style="margin-top: 13px;">{{loginButtons}}</li>
+					<li><a href="/sign-in">Sign-in <i class="glyphicon glyphicon-user"></i></a></li>
+					{{/if}}
 				</ul>
 			</div>
 	</nav>

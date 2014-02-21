@@ -36,3 +36,7 @@ bootstrap-3
 jquery
 accounts-ui-bootstrap-3
 accounts-password
+
+accounts-entry
+just-i18n
+accounts-t9n
