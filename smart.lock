@@ -8,22 +8,32 @@
       "errors": {},
       "moment": {},
       "cron-tick": {},
-      "iron-router": {},
       "lightbox2": {},
       "lunr": {},
       "leaflet": {},
-      "accounts-entry": {}
+      "accounts-entry": {},
+      "iron-router": {},
+      "blaze-layout": {},
+      "just-i18n": {},
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API",
+        "branch": "master"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support",
+        "branch": "master"
+      }
     },
     "packages": {
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.0-1",
-        "commit": "329dccb08bfc18c635676dea600ac9953162cda9"
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.5",
-        "commit": "91cd37a1320213dd209c3a668bf542eeb9c39a00"
+        "tag": "v0.3.0-1",
+        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
@@ -32,8 +42,8 @@
       },
       "errors": {
         "git": "https://github.com/tmeasday/meteor-errors.git",
-        "tag": "v0.2.0",
-        "commit": "b7cc525c19defe2dc744e8e34d1328b430f3e03a"
+        "tag": "v0.2.1",
+        "commit": "f2af03510a9e3d9952601f5f091aa76bfbcbf224"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
@@ -44,11 +54,6 @@
         "git": "https://github.com/tmeasday/meteor-cron.git",
         "tag": "v0.0.4",
         "commit": "44cff9116af510fe53704fdeeff57c444ceb75ba"
-      },
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.2",
-        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
       },
       "lightbox2": {
         "git": "https://github.com/wulx/meteor-lightbox2.git",
@@ -66,19 +71,39 @@
         "commit": "d9e3bdb824145c1078e52945909bb1cf38724da5"
       },
       "accounts-entry": {
-        "git": "https://github.com/BeDifferential/accounts-entry.git",
-        "tag": "v0.6.0",
-        "commit": "54cd9585ea58c88f3dc2d736f3ae7a6fa8432c13"
+        "git": "https://github.com/Differential/accounts-entry.git",
+        "tag": "v0.7.2",
+        "commit": "cda8617139b5edd79a52023986bfecb48e4b9dc4"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       },
       "just-i18n": {
         "git": "https://github.com/subhog/meteor-just-i18n.git",
-        "tag": "v0.1.1",
-        "commit": "ce88ac66c0dc107dc2da93ce152616115838101f"
+        "tag": "v0.2.4",
+        "commit": "91decfcf5b3b5e67f202a67658350b862330bf3d"
+      },
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API",
+        "branch": "master",
+        "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support",
+        "branch": "master",
+        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
       },
       "accounts-t9n": {
         "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
-        "tag": "v0.0.2",
-        "commit": "408e3a037114cb72163073110e2121e3d548c1a2"
+        "tag": "v0.0.3",
+        "commit": "d1710f979d6955459d9ce0374df81d22c3c6a6ab"
       }
     }
   }

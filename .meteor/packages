@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-preserve-inputs
 underscore
 
 page-js-ie-support
@@ -40,3 +39,5 @@ accounts-password
 accounts-entry
 just-i18n
 accounts-t9n
+
+blaze-layout

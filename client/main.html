@@ -6,11 +6,7 @@
     </script>
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
 </head>
-<body>
-	{{> header}}
-	{{> meteorErrors}}
-	<div class="container">
-  		{{yield}}
-  	</div>
-</body>
-
+<template name='layout'>
+	{{> yield region="header"}}
+  	{{> yield}}
+</template>

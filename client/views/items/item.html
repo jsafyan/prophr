@@ -8,7 +8,7 @@
 			</div>
 			{{#if photo}}
 			<a href="{{urlFor 'itemPage'}}">
-				<img src="{{photo}}" class="img-responsive" style="width:auto; height: 100px" class="img-rounded">
+				<img src="{{photo}}" class="img-responsive, img-rounded" style="width:auto; height: 100px">
 			</a>
 			{{/if}}
 		</div>
@@ -47,9 +47,7 @@
 			</div>
 		{{/if}}
 		</div>
-		{{#isolate}}
 		<p class="tiny-text">{{expiration}}</p>
-		{{/isolate}}
 		<p>
 			{{#if currentUser}}
 			{{#if ownItem}}
@@ -113,7 +111,7 @@
 			</div>
 		{{#if photo}}
 		<a href="{{urlFor 'itemPage'}}">
-			<img src="{{photo}}" class="img-responsive" style="width:100; height:auto" class="img-rounded">
+			<img src="{{photo}}" class="img-responsive, img-rounded" style="width:100; height:auto">
 		</a>
 		{{/if}}
 	</div>

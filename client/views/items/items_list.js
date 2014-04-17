@@ -13,7 +13,7 @@ Template.itemsList.helpers({
   }
 });
 
-Handlebars.registerHelper('trimString', function(input, length) {
+UI.registerHelper('trimString', function(input, length) {
 	if (input.length > length) {
 		var output = input.substring(0, length) + "...";
 	} else {
@@ -23,10 +23,11 @@ Handlebars.registerHelper('trimString', function(input, length) {
 });
 
 Template.itemsList.rendered = function() {
+	setupBlocks();
 	$("img").on('load', function() {
 		setupBlocks();
 	});
-	setupBlocks();
+	$(window).onload(setupBlocks);
 }
 
 var colCount = 0;

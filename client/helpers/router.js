@@ -14,7 +14,7 @@ Router.map(function() {
 	});
 	this.route('itemSubmit', {
 		path: '/submit',
-		before: function() {
+		onBeforeAction: function() {
 			AccountsEntry.signInRequired(this);
 			this.subscribe('photos').wait();
 		}
@@ -27,7 +27,7 @@ Router.map(function() {
 		waitOn: function() {
 			return [Meteor.subscribe('items'), Meteor.subscribe('photos')];
 		},
-		before: function() {
+		onBeforeAction: function() {
 			AccountsEntry.signInRequired(this);
 		}
 	});
@@ -36,7 +36,7 @@ Router.map(function() {
 		data: function() {
 			return Meteor.users.findOne(Meteor.user());
 		},
-		before: function() {
+		onBeforeAction: function() {
 			AccountsEntry.signInRequired(this);
 		}
 	});
@@ -44,7 +44,7 @@ Router.map(function() {
 
 // Pre-loading hooks
 Router.configure({
-	before: function() {
+	onBeforeAction: function() {
 		// clear any visible error messages
 		Errors.clearSeen();
 		/*
@@ -62,5 +62,10 @@ Router.configure({
 			return this.stop();
 		}
 		*/
+	},
+	layoutTemplate: 'layout',
+	yieldTemplates: 
+	 {header: 
+		{to: 'header'}
 	}
 });
