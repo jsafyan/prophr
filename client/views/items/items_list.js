@@ -27,7 +27,9 @@ Template.itemsList.rendered = function() {
 	$("img").on('load', function() {
 		setupBlocks();
 	});
-	$(window).onload(setupBlocks);
+	setTimeout(function() {
+		setupBlocks();
+	}, 1000);
 }
 
 var colCount = 0;

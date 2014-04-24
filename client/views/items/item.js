@@ -132,6 +132,7 @@ Template.itemDetail.events({
 				$('#bidModal').modal('hide');
 				$('body').removeClass('modal-open');
 				$('.modal-backdrop').fadeOut(100, function () {$('.modal-backdrop').remove(); });
+				Errors.clearSeen();
 				Errors.throw(error.reason);
 			} else {
 				// TO-DO: fix router params to use Router.go('itemPage', id);

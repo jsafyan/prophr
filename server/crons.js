@@ -25,9 +25,10 @@ MyCron.addJob(2, function() {
 });
 
 // Garbage collect old listings every two hours
-MyCron.addJob(120, function() {
+MyCron.addJob(2, function() {
 	console.log("Garbage collecting old listings...");
 	var now = moment();
 	var threeWeeksAgo = now.subtract('days', 21);
-	var oldListings = Items.find({expired: false});
+	var oldListings = Items.find({expired: true, expires: {$lt: threeWeeksAgo}});
+	console.log(oldListings);
 });

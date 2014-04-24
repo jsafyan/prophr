@@ -70,14 +70,14 @@ Meteor.methods({
 			throw new Meteor.Error(422, "Please add your zip code");
 		}
 
+		// ensure the item has an expiration date
+		if (!itemAttributes.date) {
+			throw new Meteor.Error(422, "Please add a duration for your listing");
+		}
+
 		// ensure the item has a description
 		if (!itemAttributes.description) {
 			throw new Meteor.Error(422, "Please add a description for your listing");
-		}
-
-		// ensure the item has an expiration date
-		if (!itemAttributes.date) {
-			throw new Meteor.Error(422, "Please add an expiration date for your listing");
 		}
 
 		// validate zip code

@@ -33,6 +33,7 @@ Template.itemSubmit.events({
 
 		Meteor.call('itemList', item, function(error, id) {
 			if (error) {
+				Errors.clearSeen();
 				// display the error to the user
 				Errors.throw(error.reason);
 			} else {
