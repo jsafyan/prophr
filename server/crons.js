@@ -29,6 +29,6 @@ MyCron.addJob(2, function() {
 	console.log("Garbage collecting old listings...");
 	var now = moment();
 	var threeWeeksAgo = now.subtract('days', 21);
-	var oldListings = Items.find({expired: true, expires: {$lt: threeWeeksAgo}});
+	var oldListings = Items.find({expired: true, expires: {$lt: threeWeeksAgo}}).fetch();
 	console.log(oldListings);
 });
