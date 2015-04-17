@@ -1,1 +1,2 @@
-Prophr, made with Meteor.
+
+Prophr (play on the word "proffer") was a local auction site built to learn Meteor. It was started with an early version of Meteor and updated until version 0.8.1, though it is no longer maintained. Features included creating listings, uploading photographs, bidding on listings, and a hacked-together full-text search feature. As this was built for my own edification, referencing the code is not recommended.
